@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+    <header>
+      <div class="menu-left">
+        <!-- mobile menu icon -->
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        </button>
+        <img src="images/logo.svg" alt="logo" class="logo">
+        <!-- navigation -->
+        <nav>
+          <ul id="primary-navigation" data-visible="false" class="primary-navigation">
+            <li class="active">
+              <a class="nav--link" href="#">Collections</a>
+            </li>
+            <li>
+              <a class="nav--link" href="#">Men</a>
+            </li>
+            <li>
+              <a class="nav--link" href="#">Women</a>
+            </li>
+            <li>
+              <a class="nav--link" href="#">About</a>
+            </li>
+            <li>
+              <a class="nav--link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="menu-right">
+        <img src="images/icon-cart.svg" alt="cart" class="cart-icon-1"/>
+        <img src="images/image-avatar.png" alt="avatar" class="img-avatar"/>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/image-product-1.jpg" onclick="openModal();currentSlide(1)" alt="product" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/image-product-2.jpg" onclick="openModal();currentSlide(2)" alt="product" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/image-product-3.jpg" onclick="openModal();currentSlide(3)" alt="product" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/image-product-4.jpg" onclick="openModal();currentSlide(4)" alt="product" />
+        </div>
+        <!-- next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">
+          <img class="prev-svg" src="images/icon-previous.svg" alt="previous arrow"></a>
+        <a class="next" onclick="plusSlides(1)">
+          <img class="next-svg" src="images/icon-next.svg" alt="next arrow"></a>
+      
+        <!-- img thumbnails-->
+          <div class="thumbnail-container">
+            <div class="column">
+              <img class="thumbnail" src="images/image-product-1-thumbnail.jpg" alt="product 1 thumbnail" onclick="currentSlide(1)"/>
+            </div>
+            <div class="column">
+              <img class="thumbnail" src="images/image-product-2-thumbnail.jpg" alt="product 2 thumbnail" onclick="currentSlide(2)"/>
+            </div>
+            <div class="column">
+              <img class="thumbnail" src="images/image-product-3-thumbnail.jpg" alt="product 3 thumbnail" onclick="currentSlide(3)"/>
+            </div>
+            <div class="column">
+              <img class="thumbnail" src="images/image-product-4-thumbnail.jpg" alt="product 4 thumbnail" onclick="currentSlide(4)" />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lightbox-modal" id="lightbox-modal">
+            <span class="close" onclick="closeModal()">
+              <!-- <img src="images/icon-close.svg" alt="close modal"/> -->
+            </span>
+            <div class="modal-content">
+
+            </div>
+        </div>
+      
+
+        <div class="product-container">
+          <div class="product-info">
+            <p class="product-subtitle">sneaker company</p>
+            <h1 class="product-title">Fall Limited Edition Sneakers</h1>
+            <p class="product-description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+              durable rubber outer sole, they’ll withstand everything the weather can offer.
+            </p>
+          </div>
+
+          <div class="product-price">
+            <ul class="price-list">
+              <li class="current-price">$125.00</li>
+              <li class="discount">50%</li>
+              <li class="original-price">$250.00</li>
+            </ul>
+          </div>
+
+          <div class="product-add">
+            <div class="product-quantity">
+              <img src="images/icon-minus.svg" alt="minus symbol" class="minus"/>
+              <p class="quantity">0</p>
+              <img src="images/icon-plus.svg" alt="plus symbol" class="plus" />
+            </div>
+  
+            <div class="add-to-cart">
+              <a href="#" class="add-cart-btn" alt="add to cart button">
+                <button class="btn">Add to cart</button>
+              </a>
+            </div>
+        </div>
+      </div>
+
+     
+      <div class="cart-modal">
+        <div class="cart">
+          <p class="cart-title">Cart</p>
+          <div class="cart-item">
+            <img class="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="product thumbnail" />
+            <div class="cart-item-description">
+              <p>Fall Limited Edition Sneakers</p>
+              <p>price x quantity total</p>
+            </div>
+            <div class="remove">
+              <img class="trashcan" src="images/icon-delete.svg" alt="delete item"/>
+            </div>
+          </div>
+          <div class="checkout-btn">
+            <button class="btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+    </main>
+
+
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Rachel Dooley</a>.
+    </div>
+    <script defer src="js/main.js"></script>
+  </body>
+</html>
