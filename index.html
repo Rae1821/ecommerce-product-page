@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-  <body>
+  <body class="body">
     <header>
       <div class="menu-left">
         <!-- mobile menu icon -->
@@ -24,33 +24,26 @@
         <!-- navigation -->
         <nav>
           <ul id="primary-navigation" data-visible="false" class="primary-navigation">
-            <li class="active">
-              <a class="nav--link" href="#">Collections</a>
-            </li>
-            <li>
-              <a class="nav--link" href="#">Men</a>
-            </li>
-            <li>
-              <a class="nav--link" href="#">Women</a>
-            </li>
-            <li>
-              <a class="nav--link" href="#">About</a>
-            </li>
-            <li>
-              <a class="nav--link" href="#">Contact</a>
-            </li>
+            <li class="active">Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
           </ul>
         </nav>
       </div>
       
       <div class="menu-right">
-        <img src="images/icon-cart.svg" alt="cart" class="cart-icon-1"/>
+        <div class="shopping-cart-container" id="shopping-cart-container">
+          <span id="shopping-cart-items" class="shopping-cart-items">0</span>
+          <img class="shopping-cart-icon" src="images/icon-cart.svg" alt="cart" id="shopping-cart-icon"  data-cart-icon="cartIcon"/>
+        </div>
         <img src="images/image-avatar.png" alt="avatar" class="img-avatar"/>
       </div>
     </header>
 
     <main>
-
+      <!-- Main slideshow -->
       <div class="slideshow-container">
         <div class="mySlides fade">
           <img src="images/image-product-1.jpg" onclick="openModal();currentSlide(1)" alt="product" />
@@ -84,20 +77,53 @@
             <div class="column">
               <img class="thumbnail" src="images/image-product-4-thumbnail.jpg" alt="product 4 thumbnail" onclick="currentSlide(4)" />
             </div>
-
           </div>
-        </div>
+        </div> <!-- end main slideshow -->
 
+        <!-- lightbox modal slideshow -->
         <div class="lightbox-modal" id="lightbox-modal">
             <span class="close" onclick="closeModal()">
-              <!-- <img src="images/icon-close.svg" alt="close modal"/> -->
+              <img src="images/icon-close.svg" alt="close modal"/>
             </span>
             <div class="modal-content">
+                <div class="modalSlides">
+                  <img src="images/image-product-1.jpg" onclick="currentSlide(1)" alt="product 1"/>
+                </div>
+                <div class="modalSlides">
+                  <img src="images/image-product-2.jpg" onclick="currentSlide(2)" alt="product 2"/>
+                </div>
+                <div class="modalSlides">
+                  <img src="images/image-product-3.jpg" onclick="currentSlide(3)" alt="product 3"/>
+                </div>
+                <div class="modalSlides">
+                  <img src="images/image-product-4.jpg" onclick="currentSlide(4)" alt="product 4"/>
+                </div>
 
+                <!-- next and previous buttons -->
+                <a class="modal-prev" onclick="plusSlides(-1)">
+                  <img class="prev-svg" src="images/icon-previous.svg" alt="previous arrow"></a>
+                <a class="modal-next" onclick="plusSlides(1)">
+                  <img class="next-svg" src="images/icon-next.svg" alt="next arrow"></a>
+                  
+                  <!-- img thumbnails-->
+                <div class="thumbnail-container">
+                  <div class="column">
+                    <img class="modal-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="product 1 thumbnail" onclick="currentSlide(1)"/>
+                  </div>
+                  <div class="column">
+                    <img class="modal-thumbnail" src="images/image-product-2-thumbnail.jpg" alt="product 2 thumbnail" onclick="currentSlide(2)"/>
+                  </div>
+                  <div class="column">
+                    <img class="modal-thumbnail" src="images/image-product-3-thumbnail.jpg" alt="product 3 thumbnail" onclick="currentSlide(3)"/>
+                  </div>
+                  <div class="column">
+                    <img class="modal-thumbnail" src="images/image-product-4-thumbnail.jpg" alt="product 4 thumbnail" onclick="currentSlide(4)" />
+                  </div>
+                </div>
             </div>
         </div>
       
-
+        <!-- Product Section -->
         <div class="product-container">
           <div class="product-info">
             <p class="product-subtitle">sneaker company</p>
@@ -117,42 +143,26 @@
 
           <div class="product-add">
             <div class="product-quantity">
-              <img src="images/icon-minus.svg" alt="minus symbol" class="minus"/>
-              <p class="quantity">0</p>
-              <img src="images/icon-plus.svg" alt="plus symbol" class="plus" />
+              <img src="images/icon-minus.svg" alt="minus symbol" 
+              class="minus-btn" id="minus-btn" data-minus="minus"/>
+              <p class="count" id="count">0</p>
+              <img src="images/icon-plus.svg" alt="plus symbol" 
+              class="plus-btn" id="plus-btn" data-add="plus" />
             </div>
-  
             <div class="add-to-cart">
-              <a href="#" class="add-cart-btn" alt="add to cart button">
-                <button class="btn">Add to cart</button>
-              </a>
+                <button id="cart-btn" class="btn cart-btn" data-cart="addToCart">
+                  <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#FFFFFF" fill-rule="nonzero"/></svg>
+                  Add to cart
+                </button>
             </div>
         </div>
+      </div>
+
+      <div class="cart-modal">
+        <div id="cart-item"></div>
       </div>
 
      
-      <div class="cart-modal">
-        <div class="cart">
-          <p class="cart-title">Cart</p>
-          <div class="cart-item">
-            <img class="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="product thumbnail" />
-            <div class="cart-item-description">
-              <p>Fall Limited Edition Sneakers</p>
-              <p>price x quantity total</p>
-            </div>
-            <div class="remove">
-              <img class="trashcan" src="images/icon-delete.svg" alt="delete item"/>
-            </div>
-          </div>
-          <div class="checkout-btn">
-            <button class="btn">Checkout</button>
-          </div>
-        </div>
-      </div>
-      
-
-
-
     </main>
 
 
